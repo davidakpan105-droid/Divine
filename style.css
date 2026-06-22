@@ -31,7 +31,12 @@
 
 /* ---------- RESET ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  touch-action: pan-x pan-y;
+}
 html, body { width: 100%; max-width: 100%; }
 body {
   font-family: var(--font-body);
@@ -411,8 +416,9 @@ section { padding: 100px 0; position: relative; }
 .form-group { display: flex; flex-direction: column; gap: 6px; position: relative; }
 .form-group label { font-size: 0.85rem; font-weight: 600; }
 .form-group input, .form-group textarea {
-  border: 1.5px solid var(--color-border); border-radius: var(--radius-sm); padding: 13px 16px; font-size: 0.95rem;
+  border: 1.5px solid var(--color-border); border-radius: var(--radius-sm); padding: 13px 16px; font-size: 16px;
   transition: border-color var(--transition), box-shadow var(--transition); resize: vertical;
+  width: 100%; max-width: 100%;
 }
 .form-group input:focus, .form-group textarea:focus { border-color: var(--color-primary); box-shadow: 0 0 0 4px var(--color-primary-light); outline: none; }
 .form-group.invalid input, .form-group.invalid textarea { border-color: #E25555; }
@@ -502,6 +508,9 @@ section { padding: 100px 0; position: relative; }
 /* Prevent any element from forcing horizontal scroll/stretch */
 img, video, iframe, table { max-width: 100%; height: auto; }
 .cases-grid, .services-grid, .skills-grid, .process-grid, .education-grid { width: 100%; }
+* { min-width: 0; }
+.hero-container, .about-grid, .contact-grid, .footer-grid { max-width: 100%; }
+.testimonials, .testimonial-carousel { max-width: 100vw; }
 
 [data-aos] { opacity: 0; transition: opacity 0.7s ease, transform 0.7s ease; }
 [data-aos="fade-up"] { transform: translateY(40px); }
