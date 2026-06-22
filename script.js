@@ -133,7 +133,9 @@ document.addEventListener('DOMContentLoaded', function () {
       challenge: 'Stakeholders had raw data on California cities showing parks, area, and population, with no clear way to compare access across the state.',
       role: 'Analyzed the data, calculated park density metrics, and created visual insights and comparisons across cities.',
       results: 'Identified Los Angeles as the city with the highest total parks, San Francisco as the highest density, and Fresno/Bakersfield as underserved areas.',
-      tools: ['Excel', 'Google Sheets']
+      tools: ['Excel', 'Google Sheets'],
+      doc: 'https://docs.google.com/spreadsheets/d/1Mp98SdgZIOY9a5bYYgf00AIp6GYFaQ_PdZZ-QXDdE7I/edit?usp=sharing',
+      docLabel: 'Review Spreadsheet'
     },
     2: {
       tag: 'Email Systems',
@@ -151,7 +153,9 @@ document.addEventListener('DOMContentLoaded', function () {
       challenge: 'Virtual meetings lacked structure and efficiency, leading to wasted time.',
       role: 'Created meeting agendas, scheduled attendees, assigned time blocks, and distributed meeting materials in advance.',
       results: 'Meetings became focused, shorter, and noticeably more productive.',
-      tools: ['Zoom', 'Google Docs', 'Google Calendar']
+      tools: ['Zoom', 'Google Docs', 'Google Calendar'],
+      doc: 'https://docs.google.com/document/d/15GVYerKwGASKVqyE8VKHwmuq39phLFDjSkHbe28iyIc/edit?usp=drive_link',
+      docLabel: 'Review Agenda Document'
     },
     4: {
       tag: 'Productivity',
@@ -185,6 +189,15 @@ document.addEventListener('DOMContentLoaded', function () {
       span.textContent = tool;
       toolsWrap.appendChild(span);
     });
+
+    var docLink = document.getElementById('modalDocLink');
+    if (data.doc) {
+      docLink.href = data.doc;
+      docLink.style.display = 'inline-flex';
+      docLink.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i> ' + (data.docLabel || 'Review Document');
+    } else {
+      docLink.style.display = 'none';
+    }
 
     modalOverlay.classList.add('active');
     body.classList.add('menu-open');
